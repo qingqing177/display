@@ -5,28 +5,35 @@
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .list {
-            border: 1px dotted gray;
-            background-color:indianred;
-        }
-        .list1 {
-            border: 1px dotted red;
-            background-color: burlywood;
+        .box {
+            background-color: coral;
+            width: 100px;
         }
     </style>
 </head>
 <body>
-    <ul id="list1">
+    <ul id="list">
         <li>Java</li>
         <li>JavaScript</li>
         <li>Python</li>
+        <li>AI</li>
     </ul>
-    <!-- <script src="1.js"></script> -->
-    <!-- <script src='2.js'></script> -->
+    <input type="text" id="txtCourse" />
+    <button id="btnAdd">+</button>
+    <button id='btnDel'>-</button>
+    <script>
+        const oList = document.querySelector('#list');
 
-    <button id="myButton1">Button1</button>
-    <script src='3.js'></script>
+        oList.addEventListener('mouseover',(event) => {
+            if (event.target != event.currentTarget) {
+                event.target.classList.add('box');
+            }
+        })
 
-    <div id="box">test</div>
+        oList.addEventListener('mouseout',(e)=>{
+            event.target.classList.remove('box');
+        })
+
+    </script>
 </body>
 </html>
