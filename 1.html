@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .list {
+            border: 1px dotted gray;
+            background-color:indianred;
+        }
+        .list1 {
+            border: 1px dotted red;
+            background-color: burlywood;
+        }
+    </style>
 </head>
 <body>
-    <ul>
+    <ul id="list1">
         <li>Java</li>
         <li>JavaScript</li>
         <li>Python</li>
     </ul>
-    <script>
-        const oList = document.querySelector('ul')
-        const oE = document.createElement('li')
-        //oE.append('Swift')
-        oE.textContent = 'swift'
-       // oList.append(oE)  // 插入成为最后一个节点
-       // oList.prepend(oE)  // 插入成为第一个节点
-       // oList.lastElementChild.before(oE) // 最后一个子节点的前面一个
-       //oList.firstElementChild.after(oE)  /// 插在第一个子节点之后
-       // oList.firstElementChild.nextElementSibling.remove()
-       oList.lastElementChild.replaceWith(oE)
-    </script>
+    <!-- <script src="1.js"></script> -->
+    <!-- <script src='2.js'></script> -->
+
+    <button id="myButton1">Button1</button>
+    <script src='3.js'></script>
+
+    <div id="box">test</div>
 </body>
 </html>

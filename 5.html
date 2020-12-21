@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #box {
+            width: 200px;height:200px;
+            background-color: gray;
+        }
+    </style>
 </head>
 <body>
-    <div>my div</div>
+    <div id="box">
+        <button id="myButton">click me</button>
+    </div>
+
     <script>
-        const myDiv = document.querySelector('div')
+        const box = document.querySelector("#box")
+        const myButton = document.querySelector("#myButton")
 
-        myDiv.addEventListener('click',(event) => {
-            console.log(`${event.type}`)
+        box.addEventListener('click', (e) => {
+            console.clear()
+            console.log(e.isTrusted)
+            console.log(`event.type:${e.type}`)
+            console.log(`event.target: ${e.target.tagName}`)
+            console.log(`event.currentTarget:${e.currentTarget}`)
         })
 
-        const helloEvent = new Event('hello',{bubbles:true,cancelable:false})
-
-        myDiv.addEventListener('hello',() => {
-            myDiv.style.backgroundColor = "red"
-            console.log(event.isTrusted)
-        })
-
-        myDiv.dispatchEvent(helloEvent)
     </script>
 </body>
 </html>
