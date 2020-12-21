@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
-    <title>访问非常规元素</title>
+    <title>Document</title>
 </head>
 <body>
-    <div id='myDiv'>test</div>
+    <button>click</button>
+
     <script>
-        console.log(document.doctype)
-        console.log(typeof document.doctype)
-        console.log(document.documentElement)
-        console.log(document.head)
-        console.log(document.title)
-        console.log(document.body)
+        const oButton = document.querySelector('button')
+        const callback = function () {
+            console.log('Hello, Event')
+        }
+
+        oButton.addEventListener('click', callback)
+        oButton.addEventListener('click', ()=> {
+            console.log('hello, event1')
+        })
+
     </script>
 </body>
 </html>

@@ -6,22 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>this is a heading</h1>
-    <p>this is <i>a little</i> sample</p>
+    <div>my div</div>
     <script>
-        const myPara = document.querySelector('p')
+        const myDiv = document.querySelector('div')
 
-        // beforebegin、afterbegin、beforeend、 afterend
-        myPara.insertAdjacentHTML('beforebegin','<i>test</i>')
-        myPara.insertAdjacentHTML('beforeend','<i>test2</i>')
-        myPara.insertAdjacentText('afterbegin','testsdasdfasdfa;sdjf')
-        console.log(myPara.innerHTML)
-        console.log(myPara.outerHTML)
+        myDiv.addEventListener('click',(event) => {
+            console.log(`${event.type}`)
+        })
 
-        ///= 只访问里面的文本
-        console.log(myPara.textContent)
-        console.log(document.documentElement.textContent)
-        console.log(myPara.innerText)
+        const helloEvent = new Event('hello',{bubbles:true,cancelable:false})
+
+        myDiv.addEventListener('hello',() => {
+            myDiv.style.backgroundColor = "red"
+            console.log(event.isTrusted)
+        })
+
+        myDiv.dispatchEvent(helloEvent)
     </script>
 </body>
 </html>

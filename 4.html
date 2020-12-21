@@ -1,78 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .p1 {
+        #box {
+            width: 200px;
+            height: 200px;
             border: 1px solid red;
-        }
-        .p2 {
             background-color:gray;
-        }
-        .p3 {
-            visibility:hidden;
         }
     </style>
 </head>
-
 <body>
-    <!-- 
-    // 原生属性
-    <div id="myDiv" class="test" style="border:1px solid red;"></div>
-    <img src="" alt="">
-    <label for="userName" >姓名：</label><input type="text" name="userName" id="">
+    <div id="box">box</div>
     <script>
-        const oDiv = document.querySelector('div')
-        console.log(oDiv.id)
-        console.log(oDiv.className)
-        const oLabel = document.querySelector('label')
-        console.log(oLabel.htmlFor)
-        console.log(oDiv.style)
-    </script> -->
-    <!--ClassName-->
-    <h1 class="p1 p2">this is a heading</h1>
-    <button id='myButton'>Click</button>
+        const oBox = document.querySelector('#box')
 
-    <script>
-        const heading = document.querySelector('h1')
-        const myButton = document.querySelector("#myButton")
-        //console.log(heading.className)
-        //heading.className += ' p3'
-        //console.log(heading.className)
-        //classList
-        console.log(heading.classList)
-        //heading.classList.add('p3')
-        heading.classList.remove('p2')
-        myButton.addEventListener('click',() =>{
-            heading.classList.toggle('p3')
-        })
-    </script>
+        window.addEventListener('click',() => {
+            console.log('==> window 捕获阶段')
+        },true)
+        document.addEventListener('click',() => {
+            console.log('==> document 捕获阶段')
+        }, true)
+        document.documentElement.addEventListener('click',() => {
+            console.log('==> html 捕获阶段')
+        }, true)
+        document.body.addEventListener('click',(event) => {
+            console.log('==> body 捕获阶段')
+            event.stopPropagation()
+        }, true)
+        oBox.addEventListener('click',() => {
+            console.log('==> box 捕获阶段')
+        }, true)
 
-    <!--自定义属性-->
-    <div id="myDiv1" ddd="user" eee="name">test</div>
-    <script>
-        const oDiv1 = document.querySelector('#myDiv1')
-        let ddd = oDiv1.getAttribute('ddd')
-        let id = oDiv1.getAttribute('id')
-        console.log(ddd) //user
-        console.log(id) //myDiv1
-        oDiv1.setAttribute('eee', 'xiaojichao')
-        let eee = oDiv1.getAttribute('eee')
-        console.log(eee)
-    </script>
-
-    <!--HTML5 自定义数据属性-->
-    <div id="myDiv2" data-user-name="xiaojichao" data-title="teacher">Test2</div>
-    <script>
-        const myDiv2 = document.querySelector('#myDiv2')
-        console.log(myDiv2.dataset)
-        console.log(myDiv2.dataset.userName)
-        myDiv2.dataset.title = 'student'
-        console.log(myDiv2.dataset.title)
+        window.addEventListener('click',() => {
+            console.log('==> window 冒泡阶段')
+        },false)
+        document.addEventListener('click',() => {
+            console.log('==> document 冒泡阶段')
+        }, false)
+        document.documentElement.addEventListener('click',() => {
+            console.log('==> html 冒泡阶段')
+        }, false)
+        document.body.addEventListener('click',() => {
+            console.log('==> body 冒泡阶段')
+        }, false)
+        oBox.addEventListener('click',() => {
+            console.log('==> box 冒泡阶段')
+        }, false)
     </script>
 </body>
-
 </html>

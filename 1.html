@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        
-    </style>
 </head>
 <body>
-    <button onclick='console.log("hello");'></button>
+    <ul>
+        <li>Java</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+    </ul>
     <script>
-        console.log('hello')
+        const oList = document.querySelector('ul')
+        const oE = document.createElement('li')
+        //oE.append('Swift')
+        oE.textContent = 'swift'
+       // oList.append(oE)  // 插入成为最后一个节点
+       // oList.prepend(oE)  // 插入成为第一个节点
+       // oList.lastElementChild.before(oE) // 最后一个子节点的前面一个
+       //oList.firstElementChild.after(oE)  /// 插在第一个子节点之后
+       // oList.firstElementChild.nextElementSibling.remove()
+       oList.lastElementChild.replaceWith(oE)
     </script>
-    <script src="1.js"></script>
 </body>
 </html>
